@@ -1,4 +1,4 @@
-public class ArrayDeque<T> implements Deque<T> {
+public class ArrayDeque<T> {
     private static final int INIT_CAPACITY = 8;
     private int currCapacity;
     private int size;
@@ -17,54 +17,56 @@ public class ArrayDeque<T> implements Deque<T> {
         numRight = 0;
     }
 
-    @Override
+    
     public void addFirst(T item) {
-        if(first == 0)
+        if (first == 0) {
             resize();
+        }
         elements[first--] = item;
+        size++;
         numLeft++;
     }
 
-    @Override
+    
     public void addLast(T item) {
-        if(last == currCapacity - 1)
+        if (last == currCapacity - 1) {
             resize();
+        }
         elements[last++] = item;
+        size++;
         numRight++;
     }
 
-    @Override
+    
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
+    
     public int size() {
         return size;
     }
 
-    @Override
+    
     public void printDeque() {
         for (T item : elements) {
             System.out.print(item + " ");
         }
     }
 
-    @Override
+    
     public T removeFirst() {
-        T temp = elements[++first];
-        elements[first] = null;
-        return temp;
+        size--;
+        return elements[++first];
     }
 
-    @Override
+    
     public T removeLast() {
-        T temp = elements[--last];
-        elements[last] = null;
-        return temp;
+        size--;
+        return elements[--last];
     }
 
-    @Override
+    
     public T get(int index) {
         return elements[first + 1 + index];
     }
@@ -76,10 +78,10 @@ public class ArrayDeque<T> implements Deque<T> {
         int newFirst = newLast - 1;
         int oldLast = currCapacity / 2;
         int oldFirst = oldLast - 1;
-        for(int i = newFirst; i > newFirst - numLeft; i--) {
+        for (int i = newFirst; i > newFirst - numLeft; i--) {
             temp[i] = elements[oldFirst--];
         }
-        for(int i = newLast; i > newLast + numRight; i++) {
+        for (int i = newLast; i < newLast + numRight; i++) {
             temp[i] = elements[oldLast++];
         }
         elements = temp;
@@ -90,10 +92,20 @@ public class ArrayDeque<T> implements Deque<T> {
 
     public static void main(String[] args) {
         ArrayDeque<Integer> arr = new ArrayDeque<>();
-        arr.addFirst(1);
-        arr.addFirst(2);
-        arr.addFirst(3);
-        arr.addFirst(4);
-        arr.addFirst(5);
+        arr.addFirst(0);
+        System.out.println(arr.get(0));
+        arr.addLast(2);
+        arr.addLast(3);
+        System.out.println(arr.get(2));
+        arr.addLast(5);
+        System.out.println(arr.get(3));
+        arr.addFirst(7);
+        arr.addFirst(8);
+        System.out.println(arr.get(3));
+        arr.addFirst(10);
+        arr.addFirst(11);
+        System.out.println(arr.get(1));
+        arr.addFirst(13);
+        System.out.println(arr.removeLast());
     }
 }

@@ -267,8 +267,8 @@ public class IntList {
         return out.toString();
     }
 
-    public IntList reverse() {
-        IntList curr = this;
+    public static IntList reverse(IntList A) {
+        IntList curr = A;
         IntList prev = null;
         IntList temp;
         while(curr != null) {

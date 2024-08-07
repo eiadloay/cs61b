@@ -79,33 +79,20 @@ public class ArrayDeque<T> {
         int oldLast = currCapacity / 2;
         int oldFirst = oldLast - 1;
         for (int i = newFirst; i > newFirst - numLeft; i--) {
+            if (i <= 0) {
+                break;
+            }
             temp[i] = elements[oldFirst--];
         }
         for (int i = newLast; i < newLast + numRight; i++) {
+            if (i >= newCapacity) {
+                break;
+            }
             temp[i] = elements[oldLast++];
         }
         elements = temp;
         first = newFirst - numLeft;
         last = newLast + numRight;
         currCapacity = newCapacity;
-    }
-
-    public static void main(String[] args) {
-        ArrayDeque<Integer> arr = new ArrayDeque<>();
-        arr.addFirst(0);
-        System.out.println(arr.get(0));
-        arr.addLast(2);
-        arr.addLast(3);
-        System.out.println(arr.get(2));
-        arr.addLast(5);
-        System.out.println(arr.get(3));
-        arr.addFirst(7);
-        arr.addFirst(8);
-        System.out.println(arr.get(3));
-        arr.addFirst(10);
-        arr.addFirst(11);
-        System.out.println(arr.get(1));
-        arr.addFirst(13);
-        System.out.println(arr.removeLast());
     }
 }

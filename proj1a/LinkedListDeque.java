@@ -69,7 +69,9 @@ public class LinkedListDeque<T> {
             first = null;
             last = null;
         } else {
-            first = first.next;
+            Node<T> temp = first.next;
+            first = null;
+            first = temp;
         }
         size--;
         return val;
@@ -87,7 +89,9 @@ public class LinkedListDeque<T> {
             first = null;
             last = null;
         } else {
-            last = last.prev;
+            Node<T> temp = last.prev;
+            last = null;
+            last = temp;
         }
         size--;
         return val;
@@ -135,12 +139,5 @@ public class LinkedListDeque<T> {
             this.next = null;
             prev = null;
         }
-    }
-
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> lld = new LinkedListDeque<>();
-        lld.addFirst(0);
-        System.out.println(lld.removeFirst());
-        lld.addFirst(2);
     }
 }

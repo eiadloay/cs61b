@@ -16,11 +16,11 @@ public class TestArrayDequeGold {
         Integer actual = sad.removeFirst();
         Integer expected = ads.removeFirst();
         String message = """
-                StudentArrayDeque.addFirst(1)
-                StudentArrayDeque.addFirst(0)
-                StudentArrayDeque.removeFirst()
-                Student was : """ + actual + """
-                \treference is : """ + expected;
+                StudentArrayDeque.addFirst(1);
+                StudentArrayDeque.addFirst(0);
+                StudentArrayDeque.removeFirst();
+                Student was :\s""" + actual + """
+                \treference is :\s""" + expected;
 
         Assert.assertEquals(message, expected, actual);
     }
@@ -44,15 +44,15 @@ public class TestArrayDequeGold {
         Integer actual = sad.removeFirst();
         Integer expected = ads.removeFirst();
         String message = """
-                StudentArrayDeque.addFirst(1)
-                StudentArrayDeque.addFirst(0)
-                StudentArrayDeque.addFirst(2)
-                StudentArrayDeque.addFirst(3)
-                StudentArrayDeque.addFirst(4)
-                StudentArrayDeque.addFirst(5)
-                StudentArrayDeque.removeFirst()
-                Student was : """ + actual + """
-                \treference is : """ + expected;
+                StudentArrayDeque.addFirst(1);
+                StudentArrayDeque.addFirst(0);
+                StudentArrayDeque.addFirst(2);
+                StudentArrayDeque.addFirst(3);
+                StudentArrayDeque.addFirst(4);
+                StudentArrayDeque.addFirst(5);
+                StudentArrayDeque.removeFirst();
+                Student was :\s""" + actual + """
+                \treference is :\s""" + expected;
 
         Assert.assertEquals(message, expected, actual);
     }
@@ -76,15 +76,15 @@ public class TestArrayDequeGold {
         Integer actual = sad.removeLast();
         Integer expected = ads.removeLast();
         String message = """
-                StudentArrayDeque.addFirst(1)
-                StudentArrayDeque.addFirst(0)
-                StudentArrayDeque.addFirst(2)
-                StudentArrayDeque.addFirst(3)
-                StudentArrayDeque.addFirst(4)
-                StudentArrayDeque.addFirst(5)
-                StudentArrayDeque.removeLast()
-                Student was : """ + actual + """
-                \treference is : """ + expected;
+                StudentArrayDeque.addFirst(1);
+                StudentArrayDeque.addFirst(0);
+                StudentArrayDeque.addFirst(2);
+                StudentArrayDeque.addFirst(3);
+                StudentArrayDeque.addFirst(4);
+                StudentArrayDeque.addFirst(5);
+                StudentArrayDeque.removeLast();
+                Student was :\s""" + actual + """
+                \treference is :\s""" + expected;
 
         Assert.assertEquals(message, expected, actual);
     }
@@ -124,23 +124,23 @@ public class TestArrayDequeGold {
         Integer actual = sad.removeLast();
         Integer expected = ads.removeLast();
         String message = """
-                StudentArrayDeque.addFirst(1)
-                StudentArrayDeque.addFirst(0)
-                StudentArrayDeque.addFirst(2)
-                StudentArrayDeque.removeLast()
-                StudentArrayDeque.addFirst(3)
-                StudentArrayDeque.addFirst(4)
-                StudentArrayDeque.addFirst(5)
-                StudentArrayDeque.removeFirst()
-                StudentArrayDeque.addFirst(6)
-                StudentArrayDeque.addFirst(7)
-                StudentArrayDeque.addFirst(8)
-                StudentArrayDeque.addFirst(9)
-                StudentArrayDeque.removeFirst()
-                StudentArrayDeque.removeLast()
-                StudentArrayDeque.removeLast()
-                Student was : """ + actual + """
-                \treference is : """ + expected;
+                StudentArrayDeque.addFirst(1);
+                StudentArrayDeque.addFirst(0);
+                StudentArrayDeque.addFirst(2);
+                StudentArrayDeque.removeLast();
+                StudentArrayDeque.addFirst(3);
+                StudentArrayDeque.addFirst(4);
+                StudentArrayDeque.addFirst(5);
+                StudentArrayDeque.removeFirst();
+                StudentArrayDeque.addFirst(6);
+                StudentArrayDeque.addFirst(7);
+                StudentArrayDeque.addFirst(8);
+                StudentArrayDeque.addFirst(9);
+                StudentArrayDeque.removeFirst();
+                StudentArrayDeque.removeLast();
+                StudentArrayDeque.removeLast();
+                Student was :\s""" + actual + """
+                \treference is :\s""" + expected;
 
         Assert.assertEquals(message, expected, actual);
     }

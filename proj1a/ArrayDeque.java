@@ -93,6 +93,7 @@ public class ArrayDeque<T> {
         int newCapacity = currCapacity * 2;
         int oldFirst = first;
         int oldLast = last;
+        int oldSize = size;
         T[] temp = (T[]) new Object[currCapacity];
         System.arraycopy(elements, 0, temp, 0, currCapacity);
         elements = (T[]) new Object[newCapacity];
@@ -106,5 +107,6 @@ public class ArrayDeque<T> {
             }
         }
         currCapacity = newCapacity;
+        size = oldSize;
     }
 }

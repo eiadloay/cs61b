@@ -91,26 +91,20 @@ public class ArrayDeque<T> {
 
     private void resize() {
         int newCapacity = currCapacity * 2;
-        T[] temp = (T[]) new Object[newCapacity];
-        int newLast = newCapacity / 2;
-        int newFirst = newLast - 1;
-        int oldLast = currCapacity / 2;
-        int oldFirst = oldLast - 1;
-        for (int i = newFirst; i > newFirst - numLeft; i--) {
-            if (i <= 0) {
-                break;
+        int oldFirst = first;
+        int oldLast = last;
+        T[] temp = (T[]) new Object[currCapacity];
+        System.arraycopy(elements, 0, temp, 0, currCapacity);
+        elements = (T[]) new Object[newCapacity];
+        first = newCapacity / 2;
+        last = first;
+        for (int i = oldFirst + 1; i < oldLast; i++) {
+            if (i <= oldFirst + numLeft) {
+                addFirst(temp[i]);
+            } else {
+                addLast(temp[i]);
             }
-            temp[i] = elements[oldFirst--];
         }
-        for (int i = newLast; i < newLast + numRight; i++) {
-            if (i >= newCapacity) {
-                break;
-            }
-            temp[i] = elements[oldLast++];
-        }
-        elements = temp;
-        first = newFirst - numLeft + 1;
-        last = newLast + numRight - 1;
         currCapacity = newCapacity;
     }
 }

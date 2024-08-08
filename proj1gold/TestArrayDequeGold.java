@@ -132,8 +132,7 @@ public class TestArrayDequeGold {
                          "StudentArrayDeque.addFirst(9);\n" +
                          "StudentArrayDeque.removeFirst();\n" +
                          "StudentArrayDeque.removeLast();\n" +
-                         "StudentArrayDeque.removeLast();\n" +
-                         "Student was " + actual + "\t Expected was " + expected;
+                         "StudentArrayDeque.removeLast();\n";
 
         Assert.assertEquals(message, expected, actual);
     }

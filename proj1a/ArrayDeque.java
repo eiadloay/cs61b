@@ -4,7 +4,6 @@ public class ArrayDeque<T> {
     private int size;
     private int first;
     private int last;
-    private int numRight, numLeft;
     private T[] elements;
 
     public ArrayDeque() {
@@ -13,8 +12,6 @@ public class ArrayDeque<T> {
         size = 0;
         last = INIT_CAPACITY / 2;
         first = last;
-        numLeft = 0;
-        numRight = 0;
     }
 
     
@@ -27,7 +24,6 @@ public class ArrayDeque<T> {
         }
         elements[first--] = item;
         size++;
-        numLeft++;
     }
 
     
@@ -40,7 +36,6 @@ public class ArrayDeque<T> {
         }
         elements[last++] = item;
         size++;
-        numRight++;
     }
 
     
@@ -66,9 +61,6 @@ public class ArrayDeque<T> {
             return null;
         }
         size--;
-        if (numLeft > 0) {
-            numLeft--;
-        }
         return elements[++first];
     }
 
@@ -78,9 +70,6 @@ public class ArrayDeque<T> {
             return null;
         }
         size--;
-        if (numRight > 0) {
-            numRight--;
-        }
         return elements[--last];
     }
 
@@ -100,11 +89,7 @@ public class ArrayDeque<T> {
         first = newCapacity / 2;
         last = first;
         for (int i = oldFirst + 1; i < oldLast; i++) {
-            if (i <= oldFirst + numLeft) {
-                addFirst(temp[i]);
-            } else {
-                addLast(temp[i]);
-            }
+            addLast(temp[i]);
         }
         currCapacity = newCapacity;
         size = oldSize;

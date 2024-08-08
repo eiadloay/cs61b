@@ -17,7 +17,7 @@ public class ArrayDeque<T> {
     
     public void addFirst(T item) {
         if (first == 0) {
-            resize();
+            resize(currCapacity * 2);
         }
         if (first == last) {
             last++;
@@ -29,7 +29,7 @@ public class ArrayDeque<T> {
     
     public void addLast(T item) {
         if (last == currCapacity - 1) {
-            resize();
+            resize(currCapacity * 2);
         }
         if (last == first) {
             first--;
@@ -60,6 +60,9 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
+        if (size < currCapacity / 4) {
+            resize(currCapacity / 2);
+        }
         size--;
         return elements[++first];
     }
@@ -68,6 +71,9 @@ public class ArrayDeque<T> {
     public T removeLast() {
         if (isEmpty()) {
             return null;
+        }
+        if (size < currCapacity / 4) {
+            resize(currCapacity / 2);
         }
         size--;
         return elements[--last];
@@ -78,8 +84,8 @@ public class ArrayDeque<T> {
         return elements[first + 1 + index];
     }
 
-    private void resize() {
-        int newCapacity = currCapacity * 2;
+    private void resize(int size) {
+        int newCapacity = size;
         int oldFirst = first;
         int oldLast = last;
         int oldSize = size;

@@ -21,5 +21,18 @@ public class TestOffByOne {
         char z = 'z';
         assertFalse(offByOne.equalChars(a, z));
     }
-    // Uncomment this class once you've created your CharacterComparator interface and OffByOne class. **/
+
+    @Test
+    public void testOffByOneUpperCase() {
+        char a = 'a';
+        char B = 'B';
+        assertFalse(offByOne.equalChars(a, B));
+    }
+
+    @Test
+    public void testOffByOneNonLetters() {
+        char a = '&';
+        char z = '%';
+        assertTrue(offByOne.equalChars(a, z));
+    }
 }

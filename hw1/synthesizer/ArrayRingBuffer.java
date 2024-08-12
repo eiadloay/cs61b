@@ -76,6 +76,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         public T next() {
             T temp = rb[ptr];
             ptr++;
+            if (ptr == capacity) {
+                ptr = 0;
+            }
             num++;
             return temp;
         }

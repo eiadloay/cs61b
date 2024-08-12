@@ -31,7 +31,7 @@ public class GuitarString {
 
         Random r = new Random();
         while (!buffer.isFull()) {
-            buffer.enqueue(r.nextDouble(-0.5, 0.5));
+            buffer.enqueue(r.nextDouble() - 0.5);
         }
     }
 

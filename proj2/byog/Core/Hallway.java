@@ -3,8 +3,6 @@ package byog.Core;
 import byog.TileEngine.TETile;
 import byog.TileEngine.Tileset;
 
-import java.util.ArrayList;
-
 public class Hallway {
     Posit corner;
     Posit start;

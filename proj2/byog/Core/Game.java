@@ -490,10 +490,8 @@ public class Game {
             os.writeObject(cw);
         }  catch (FileNotFoundException e) {
             System.out.println("file not found");
-            System.exit(0);
         } catch (IOException e) {
             System.out.println(e);
-            System.exit(0);
         }
     }
 }

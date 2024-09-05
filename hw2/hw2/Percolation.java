@@ -31,6 +31,9 @@ public class Percolation {
 
     public void open(int row, int col) {
         validateIndexBounds(row, col);
+        if (isOpen(row, col)) {
+            return;
+        }
         int up = (row > 0) ? (row - 1) * N + col + 1 : -1;
         int down = (row < N - 1) ? (row + 1) * N + col + 1 : -1;
         int left = (col > 0) ? row * N + (col - 1) + 1 : -1;

@@ -13,11 +13,14 @@ public class Percolation {
             throw new IllegalArgumentException("Size of gird must be bigger than 0");
         }
 
-        wquf = new WeightedQuickUnionUF(N * N + 1);
+        wquf = new WeightedQuickUnionUF(N * N + 2);
         sites = new int[N][N];
 
         for (int i = 1; i <= N; i++) {
             wquf.union(0, i);
+        }
+        for (int i = N * N; i > (N * N) - N; i--) {
+            wquf.union(N * N + 1, i);
         }
 
         for (int i = 0; i < N; i++) {
@@ -67,12 +70,7 @@ public class Percolation {
     }
 
     public boolean percolates() {
-        for (int i = N * N; i > N * N - N; i--) {
-            if (wquf.connected(0, i)) {
-                return true;
-            }
-        }
-        return false;
+        return wquf.connected(0, N * N + 1);
     }
 
     private void validateIndexBounds(int row, int col) {
@@ -81,7 +79,4 @@ public class Percolation {
         }
     }
 
-    public static void main(String[] args) {
-        
-    }
 }

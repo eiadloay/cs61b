@@ -67,7 +67,7 @@ public class Percolation {
     }
 
     public boolean percolates() {
-        for (int i = N * N; i > i - N; i--) {
+        for (int i = N * N; i > N * N - N; i--) {
             if (wquf.connected(0, i)) {
                 return true;
             }
